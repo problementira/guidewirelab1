@@ -1,0 +1,126 @@
+3.6.1
+
+uses gw.api.database.Query
+
+var ContactQuery = Query.make(ABContact).select()
+
+for(createtime in ContactQuery)
+{
+  print("Time Created  : " + createtime.CreateTime)   
+  break;
+}
+
+3.6.2
+
+uses gw.api.database.Query
+
+var ContactQuery = Query.make(ABContact).select()
+
+for(name in ContactQuery)
+{
+  if(name.StrategicPartner_Ext)
+   {
+     print(name.DisplayName + " is a Strategic Partner")
+   }
+  else
+  {
+    print(name.DisplayName + " is not a Strategic Partner")
+  }
+
+
+}
+
+3.6.3
+
+uses gw.api.database.Query
+
+var ContactQuery = Query.make(ABContact).select()
+
+for(name in ContactQuery)
+{
+  print(name.DisplayName + "'s State is " + name.PrimaryAddress.State)
+}
+
+
+3.6.4
+
+uses gw.api.database.Query
+
+var ContactQuery = Query.make(ABContact).select()
+
+for(name in ContactQuery)
+{
+   if(name typeis ABDoctor)
+    {
+      print(name.DisplayName+ " is a " + name.Category)
+    }
+  else
+    {
+      print(name.DisplayName+ " is not a Doctor ")
+    }
+    
+  
+}
+
+4.1.2
+
+uses gw.api.database.Query
+
+var ContactQuery = Query.make(ABContact).select()
+
+for(name in ContactQuery)
+{
+  if(name.DisplayName=="William Andy" || name.DisplayName=="Eric Andy")
+  {
+    print(name.DisplayName + " has " + name.BankAccounts.length + " bank Accounts ")
+  }
+
+
+}
+
+4.1.3
+
+uses gw.api.database.Query
+
+var ContactQuery = Query.make(ABContact).select()
+  var i = 1
+for(name in ContactQuery)
+{
+  if(name.BankAccounts.length!=0)
+  {
+    for(iterator in name.BankAccounts)
+    {
+      print(i +" Account Number : " + iterator.AccountNumber+ "  Account Type: " + iterator.AccountType)
+      i++
+    }
+  }
+
+
+}
+
+4.1.4
+uses gw.api.database.Query
+
+var ContactQuery = Query.make(ABContact).select()
+   var i =1
+for(name in ContactQuery)
+{
+  if(name.BankAccounts.length!=0)
+  {
+    for(iterator in name.BankAccounts)
+    if(iterator.BankName.equals("National Bank"))
+    {
+      print("This Contact has an National Bank Account")
+      break;
+    }
+    else
+    {
+      print("This contact do not have an National Bank account")
+      break;
+    }
+
+  }
+  
+}
+
+
